@@ -1,0 +1,26 @@
+version: '3.11'
+
+services:
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8400:8400"
+    networks:
+      - API_network
+    container_name: fastapi_backend
+
+  bot:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    depends_on:
+      - api
+    networks:
+      - API_network
+    container_name: tg_bot
+
+networks:
+  API_network:
