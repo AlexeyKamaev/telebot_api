@@ -7,7 +7,7 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from config_reader import config
 from handlers import ending, my_conditions, cian_id_search, base, random
 
-TOKEN='6798104769:AAFBifcoGoS1tb7ZN2D9eivYQup5iBVUFpQ'
+TOKEN=config.bot_token.get_secret_value()
 
 async def main(TOKEN=TOKEN):
 
